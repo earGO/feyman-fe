@@ -1,26 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import Reactotron from 'reactotron-react-js'
+
+/*decorations import*/
+import Particles from 'react-particles-js';
+
+/*Components import*/
+import Header from './Components/Header/Header';
+import Itemlist from './Components/Itemlist/Itemlist';
+import Navigation from './Components/Navigation/Navigation';
+import Footer from './Components/Footer/Footer';
+
+
 import './App.css';
 
+
 class App extends Component {
+    componentDidMount(){
+        document.title = "Blog for logging cool things"
+    }
+
   render() {
+      Reactotron.log('hello rendering world')
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <div  className="App">
+
+            <Header />
+            <Navigation />
+            <Itemlist />
+            <Footer />
+        </div>
     );
   }
 }
