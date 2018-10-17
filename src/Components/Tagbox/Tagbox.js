@@ -6,7 +6,7 @@ const TagBox = ({ textField, textChange }) => {
             <input
                 className='pa3 ba b--green bg-lightest-blue'
                 type='search'
-                placeholder='input tags'
+                placeholder='1 (or put another tag here'
                 onChange={textChange}
             />
         </div>

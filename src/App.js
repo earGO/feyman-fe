@@ -19,7 +19,7 @@ class App extends Component {
         super()
         this.state = {
             posts: [],
-            textField: '',
+            textField: '1',
         }
     }
 
@@ -47,16 +47,14 @@ class App extends Component {
       );
       console.log(typeof posts[0])
     return (
-        <div  className="App">
-
+        <div  className="App ph5 Container">
             <Header />
+
             <Intro/>
             <Tagbox textChange={this.onTextChange}/>
-            <Scroll>
                  <Itemlist posts={filteredPosts}/>
-            </Scroll>
-
             <Footer />
+
         </div>
     );
   }

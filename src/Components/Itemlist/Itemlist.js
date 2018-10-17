@@ -3,7 +3,7 @@ import Item from '../Item/Item.js'
 
 const Itemlist = ({ posts }) => {
     return (
-        <div>
+        <div className={'flex flex-wrap'}>
             {
                 posts.map((post, i) => {
 
