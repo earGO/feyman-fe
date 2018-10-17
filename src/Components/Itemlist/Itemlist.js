@@ -1,9 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Item from '../Item/Item.js'
 
-const Itemlist = () => {
+const Itemlist = ({ posts }) => {
     return (
-        <p>This is an itemlist component</p>
+        <div>
+            {
+                posts.map((post, i) => {
+
+                    return (
+                        <Item
+                            key={i}
+                            userId={posts[i].userId}
+                            title={posts[i].title}
+                            body={posts[i].body}
+                        />
+                    );
+                })
+            }
+        </div>
     );
+
 }
 
 export default Itemlist;
