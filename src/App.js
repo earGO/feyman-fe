@@ -52,7 +52,7 @@ class App extends Component {
 
             <Intro/>
             <Tagbox textChange={this.onTextChange}/>
-                 <Itemlist posts={filteredPosts}/>
+            {/*<Itemlist posts={filteredPosts}/>*/}
             <Footer />
 
         </div>
