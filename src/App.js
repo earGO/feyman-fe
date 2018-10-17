@@ -47,7 +47,7 @@ class App extends Component {
       );
       console.log(typeof posts[0])
     return (
-        <div  className="App ph5 Container">
+        <div  className="App ph5 width-75 pv3 ph5" id={'wrapper'}>
             <Header />
 
             <Intro/>

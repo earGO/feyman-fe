@@ -6,17 +6,16 @@ import './Item.css';
 const Item = ({userId,id,title,body}) => {
     return (
         <div className=''>
-             <article className="cf ph3 ph5-ns pv5 flex flex-wrap-reverse">
-                <div className='fn pr4-ns w-100 w-30-ns' id='itemTHumb'>
-                    <tags className="f6 ttu ma2 tracked gray"><TagPlate /></tags>
-                </div>
-                <div className="fn pr4-ns mv1 w-100 w-70-l pl3-1">
-                    <h1 className="mb1 mt0-ns mt1 lh-title f4 tl">{title}</h1>
-
-                    <p className="mb3 mt2 tj-ns">{body} </p>
+            <article className="center mw6 mw8-ns hidden mv4 flex flex-wrap-reverse pv0.4">
+                <div className="mw5 f4 bg-near-white br3 br--top black-60 mv0 pa3 mr2"><TagPlate /></div>
+                <div className="omw15 pa0.3">
+                    <p className="f4 f4-ns lh-copy measure-wide">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                        vero eos et accusam et justo duo dolores et ea rebum.
+                    </p>
                 </div>
             </article>
-
         </div>
 
     );

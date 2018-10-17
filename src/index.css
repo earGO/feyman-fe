@@ -10,7 +10,10 @@
 
 }
 
-
+.v-generated-body {
+  min-width: 1000px;
+  overflow: auto;
+}
 
 .code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

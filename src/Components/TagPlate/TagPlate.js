@@ -4,8 +4,12 @@ import React from 'react';
 const TagPlate = ({tagList}) => {
     return (
         <div className=''>
-            <article className="cf ph1-ns flex">
-                <a className="f6 lh-copy link di br1 ph3 pv1 mb1 dib black" href="#0">TagName</a>
+            <article className="ph1-ns di">
+                <a className="f6 link ph1 pv1 mb1 dib black" href="#0">TagName</a>
+                <a className="f6 link ph1 pv1 mb1 dib black" href="#0">TagName</a>
+                <a className="f6 link ph1 pv1 mb1 dib black" href="#0">TagName</a>
+                <a className="f6 link ph1 pv1 mb1 dib black" href="#0">TagName</a>
+                <a className="f6 link ph1 pv1 mb1 dib black" href="#0">TagName</a>
                 {/*}                <div className='fn fl w-third pr4-ns' id='itemTHumb' >
                     <a href="https://placeholder.com"><img src="https://via.placeholder.com/350x250" /></a>
                 </div>
