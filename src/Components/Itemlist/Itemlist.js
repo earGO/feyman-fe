@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from '../Item/Item.js'
 
-const Itemlist = ({ posts }) => {
+const Itemlist = ({ posts , onRouteChange}) => {
     return (
         <div className=''>
             {
@@ -13,6 +13,7 @@ const Itemlist = ({ posts }) => {
                             userId={posts[i].userId}
                             title={posts[i].title}
                             body={posts[i].body}
+                            onRouteChange={onRouteChange}
                         />
                     );
                 })
