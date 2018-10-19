@@ -5,15 +5,19 @@ import ReactTags from 'react-tag-autocomplete';
 
 
 /*Components import*/
-import Header from './Components/Header/Header';
-import Itemlist from './Components/Itemlist/Itemlist';
-import Footer from './Components/Footer/Footer';
-import Intro from "./Components/Intro/Intro";
-import Tagbox from './Components/Tagbox/Tagbox';
-import Post from './Components/Post/Post';
+import Header from '../Components/Header/Header';
+import Itemlist from './Itemlist/Itemlist';
+import Footer from '../Components/Footer/Footer';
+import Intro from "../Components/Intro/Intro";
+import Tagbox from '../Components/Tagbox/Tagbox';
+import Post from './Post/Post';
+import DebugComponent from '../Components/DebugComponent/DebugComponent';
 
 import './App.css';
-
+/*pure logic of a database is
+* container maps through list of items,
+* does all queries to database,
+* and feeds results to the components */
 const database = {
     tags: [
         {
@@ -111,7 +115,7 @@ class App extends Component {
                 { id: 5, name: "Lemons" },
                 { id: 6, name: "Apricots" }
             ],
-            showPostId:'' /*a state to pick a post to show*/
+            showPostId: '' /*a state to pick a post to show*/
         }
     }
 
@@ -125,7 +129,11 @@ class App extends Component {
     }
 
     showPost = (postId) => {
-        this.setState({showPostId: postId});
+        if (postId) {
+            this.setState({showPostId: postId});
+            console.log(this.state)
+        };
+
     }
 
     onRouteChange = (route) => {
@@ -149,11 +157,25 @@ class App extends Component {
         <div  className="App ph5 width-75 pv3 ph5" id={'wrapper'}>
             <Header onRouteChange={this.onRouteChange}/>
 
-            <Intro/>
+
             {/*            <Tagbox textChange={this.onTextChange}/>*/}
             {this.state.route === 'home'
-                ? <Itemlist posts={database.posts} onRouteChange={this.onRouteChange} tags={database.tags} showPost={this.showPost}/>
-                : <Post showPostId={showPostId}/>}
+                ?<div>
+                    <Intro/>
+                    <Itemlist
+                        posts={database.posts}
+                        onRouteChange={this.onRouteChange}
+                        tags={database.tags}
+                        showPost={this.showPost}
+                    />
+                </div>
+                : (
+                    this.state.route='post'
+                        ? <div>{console.log(this.state)}
+                        <Post showPostId={showPostId} /></div>
+                        : <DebugComponent/>
+                )
+            }
             <Footer />
 
         </div>

@@ -1,6 +1,5 @@
 
 import React from 'react';
-import Item from "../Item/Item";
 
 /*this component creates a single tag for a parent <TagPlate> component
 * it is populated by data from tags table in database
@@ -8,14 +7,13 @@ import Item from "../Item/Item";
 * it gets tag_id from a <TagPlate> component and gets
 * tag_name and tag_img from a tags table in database*/
 
-const TagComponent = ({tag_name,tag_img}) => {
+const DebugComponent = () => {
     return (
         <div name="tagselectorwrapper" className={'dib'}>
-            <img alt={'tagicon'} src={tag_img}/>
-            <h4>{tag_name}</h4>
+            <h4>Component not mounted, need debug</h4>
         </div>
 
     );
 };
 
-export default TagComponent;
+export default DebugComponent;

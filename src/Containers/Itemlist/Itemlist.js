@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from '../Item/Item.js'
+import Item from '../../Components/Item/Item.js'
 
 /*itemlist gives to each <item> component
 * post_id,title and tagplate from posts table

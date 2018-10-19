@@ -1,6 +1,6 @@
 
 import React from 'react'
-import TagComponent from '../TagComponent/TagComponent';
+import TagComponent from '../../Components/TagComponent/TagComponent';
 
 /*as i want to pick tags directly from a component that fetches them,
 i use tagtable placeholder instead of a database table for dev purposes*/

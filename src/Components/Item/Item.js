@@ -1,6 +1,6 @@
 
 import React from 'react';
-import TagPlate from'../TagPlate/TagPlate';
+import TagPlate from '../../Containers/TagPlate/TagPlate';
 import './Item.css';
 
 /*this component creates item for itemlist
@@ -24,6 +24,7 @@ const Item = ({title,short, post_id, tagplate, onRouteChange, showPost}) => {
                         onClick={() => {
                             onRouteChange('post');
                             showPost(post_id);
+                            console.log(post_id)
                         } }
                         >
                         {short}
