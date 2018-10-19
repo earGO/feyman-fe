@@ -46,16 +46,18 @@ const database = {
         {
             "post_id": 1,
             "post_title": "first database post",
-            "post-short": "some short text",
+            "post_short": "some short text",
             "articles": [1,2,],
-            "tagplate": [1,2,3],
+            "tagplate": [7,5,3]
         },
         {
             "post_id": 2,
-            "post_title": "first database post",
-            "post-short": "some other short text",
+            "post_title": "second database post",
+            "post_short": "some other short text",
             "articles": [3,4],
-            "tagplate": [1,2,3],
+            "tagplate": [1,3,4,2]
+
+
         }
     ],
     articles: [
@@ -97,8 +99,7 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            posts: [],
-            textField: '1',
+            textField: '',
             route: 'home',
             tags: [
                 { id: 1, name: "Apples" },
@@ -109,7 +110,8 @@ class App extends Component {
                 { id: 4, name: "Mangos" },
                 { id: 5, name: "Lemons" },
                 { id: 6, name: "Apricots" }
-            ]
+            ],
+            showPostId:'' /*a state to pick a post to show*/
         }
     }
 
@@ -122,6 +124,10 @@ class App extends Component {
         this.setState({textField: event.target.value})
     }
 
+    showPost = (postId) => {
+        this.setState({showPostId: postId});
+    }
+
     onRouteChange = (route) => {
         if (route==='signout') {//if user clicks 'Sign out' on Navigation component we change 'isSignedIn' state so "Sign in" and "registration" displayed on a Navigation component
             this.setState({isSignedIn:false})
@@ -132,43 +138,22 @@ class App extends Component {
     }
 
 
-/*managing tags system from a react-tag-autocomplete*/
-    handleDelete (i) {
-        const tags = this.state.tags.slice(0)
-        tags.splice(i, 1)
-        this.setState({ tags })
-    }
-    handleAddition (tag) {
-        const tags = [].concat(this.state.tags, tag)
-        this.setState({ tags })
-    }
-
 
 
   render() {
       Reactotron.log('hello rendering world')
 
-     const {posts,textField} = this.state;
-      const filteredPosts = posts.filter(function(post) {
-          return post.userId == textField;
-          }
+     const {showPostId,textField} = this.state;
 
-      );
-      console.log(typeof posts[0])
     return (
         <div  className="App ph5 width-75 pv3 ph5" id={'wrapper'}>
             <Header onRouteChange={this.onRouteChange}/>
 
             <Intro/>
-            <Tagbox textChange={this.onTextChange}/>
-            <ReactTags
-                tags={this.state.tags}
-                suggestions={this.state.suggestions}
-                handleDelete={this.handleDelete.bind(this)}
-                handleAddition={this.handleAddition.bind(this)} />
+            {/*            <Tagbox textChange={this.onTextChange}/>*/}
             {this.state.route === 'home'
-                ? <Itemlist posts={database.posts} onRouteChange={this.onRouteChange}/>
-                : <Post />}
+                ? <Itemlist posts={database.posts} onRouteChange={this.onRouteChange} tags={database.tags} showPost={this.showPost}/>
+                : <Post showPostId={showPostId}/>}
             <Footer />
 
         </div>
