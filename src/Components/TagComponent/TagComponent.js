@@ -1,6 +1,5 @@
 
 import React from 'react';
-import Item from "../Item/Item";
 
 /*this component creates a single tag for a parent <TagPlate> component
 * it is populated by data from tags table in database
@@ -11,8 +10,7 @@ import Item from "../Item/Item";
 const TagComponent = ({tag_name,tag_img}) => {
     return (
         <div name="tagselectorwrapper" className={'dib'}>
-            <img alt={'tagicon'} src={tag_img}/>
-            <h4>{tag_name}</h4>
+            <a className="f6 link dim ph1 pv1 mb2 dib black" href="#0"><img alt={'tagicon'} src={tag_img} width={'10px'} height={'100%'}/>{tag_name}</a>
         </div>
 
     );
