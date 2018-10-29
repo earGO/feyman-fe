@@ -3,14 +3,15 @@ import React, { Component } from 'react';
 import Reactotron from 'reactotron-react-js'
 
 
+/*Containers import*/
+import PostsItemList from '../Containers/PostsItemList/PostsItemList';
 
 /*Components import*/
 import Header from '../Components/Header/Header';
-import Itemlist from './Itemlist/Itemlist';
 import Footer from '../Components/Footer/Footer';
-import Intro from "../Components/Intro/Intro";
 import Post from './Post/Post';
 import DebugComponent from '../Components/DebugComponent/DebugComponent';
+
 
 import './App.css';
 /*pure logic of a database is
@@ -67,17 +68,12 @@ class App extends Component {
     return (
         <div  className="App ph5 width-75 pv3 ph5" id={'wrapper'}>
             <Header onRouteChange={this.onRouteChange}/>
-
-
-            {/*            <Tagbox textChange={this.onTextChange}/>*/}
             {route === 'home'
                 ?<div>
-                    <Intro/>
-                    <Itemlist
+                    <PostsItemList
                         postIds={this.state.posts}
                         onRouteChange={this.onRouteChange}
-                        showPost={this.showPost}
-                    />
+                        showPost={this.showPost}/>
                 </div>
                 : (
                     route==='post'
