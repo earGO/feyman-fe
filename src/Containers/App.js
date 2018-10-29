@@ -23,7 +23,6 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            textField: '',
             route: 'home',
             showPostId: '', /*a state to pick a post to show*/
             posts:[],
@@ -63,7 +62,7 @@ class App extends Component {
   render() {
       Reactotron.log('hello rendering world')
 
-     const {showPostId,textField, route} = this.state;
+     const {showPostId, route} = this.state;
 
     return (
         <div  className="App ph5 width-75 pv3 ph5" id={'wrapper'}>
@@ -83,7 +82,6 @@ class App extends Component {
                 )
             }
             <Footer />
-
         </div>
     );
   }

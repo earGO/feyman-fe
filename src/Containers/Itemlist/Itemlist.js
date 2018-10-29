@@ -27,7 +27,7 @@ class Itemlist extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/') /*fetches start page data from backend*/
+        fetch('http://localhost:3000/smart') /*fetches start page data from backend*/
             .then(response => response.json())
             .then(data => {
                 this.setState({posts: data});
@@ -43,11 +43,13 @@ class Itemlist extends Component {
                         return (
                             <Item
                                 key={i}
-                                post_id={post.ID}
-                                title={post.title}
-                                short={post.short}
+                                post_id={post[0]}
+                                title={post[1]}
+                                short={post[2]}
+                                tags={post[3]}
                                 onRouteChange={this.props.onRouteChange}
                                 showPost={this.props.showPost}
+
                             />
                         );}
                     )

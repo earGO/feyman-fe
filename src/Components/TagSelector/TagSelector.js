@@ -8,8 +8,10 @@ export default class TagSelector extends React.Component {
         super(props);
         this.state = {
             inputValue: '',
-            fColors: [],
-            sTags:[]
+            fColors: [], /*an array to fill lits options from database when component initially mounts in a parent*/
+            sTags:[], /*an array to work with*/
+            value:'test string'
+
         };
 
     }
@@ -25,6 +27,14 @@ export default class TagSelector extends React.Component {
     componentDidUpdate() {
 
     }
+
+    updateState(element) {
+        this.setState({
+            value: element
+        })
+        this.props.updateSelectedTags(element)
+    }
+
     filterTags = (inputValue: string) =>
         this.state.fColors.filter(i =>
             i.label.toLowerCase().includes(inputValue.toLowerCase())
@@ -43,24 +53,11 @@ export default class TagSelector extends React.Component {
         return inputValue;
     };
 
-    handleTagsToState = (opt,meta) => {
-        if (opt.length) {
-            this.setState({
-                sTags:opt});
-
-        }
-    }
-
-    clickOnSubmit = (e) => {
-        this.props.handleTagsUpdate(this.state.sTags);
-
-    }
-
     render() {
         return (
             <div className={'stylewrapper center db di w-60 cf'}>
                     <div className={'f6 f5-l input-reset bn fl black-80 bg-white pa1 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns'}>
-                        <AsyncSelect
+                       <AsyncSelect
                         isMulti
                         closeMenuOnSelect={false}
                         cacheOptions
@@ -70,13 +67,8 @@ export default class TagSelector extends React.Component {
                         className='tagSelect'
                         id='tagSelect'
                         type={'submit'}
-                        onChange={this.handleTagsToState}/>
+                        onChange={this.updateState.bind(this)}/>
                     </div>
-                    <input
-                        className="f6 f5-l button-reset fl pv3 tc bn bg-animate hover-bg-black white pointer w-100 w-25-m w-20-l br2-ns br--right-ns"
-                        type="submit"
-                        value="Save Tags"
-                        onClick={this.clickOnSubmit}/>
             </div>
         );
     }

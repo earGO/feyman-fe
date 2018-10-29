@@ -35,7 +35,6 @@ class Post extends React.Component {
 
     render() {
         const post_articles = this.state.articles;
-        console.log(post_articles);
         return(
             <div>
                 {

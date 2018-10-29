@@ -18,25 +18,11 @@ class TagPlate extends Component {
         };
     }
     componentDidMount() {
-        let fetchUrl=urljoin('http://localhost:3000/ptags/',this.props.postId.toString())
-        fetch(fetchUrl)
-            .then(response => response.json())
-            .then(data => {
-                this.setState({tags: data});
-            })
-            .catch(err => console.log('error getting post'))
-        let fetchUrl2=urljoin('http://localhost:3000/ptagsa/',this.props.postId.toString())
-        fetch(fetchUrl2)
-            .then(response => response.json())
-            .then(dataa => {
-                this.setState({tagsa: dataa});
-            })
-            .catch(err => console.log('error getting post'))
+        console.log(this.props.tags)
     }
 
     render() {
-        const tags_t_s=this.state.tags;
-        {console.log(tags_t_s[0])}
+        const tags_t_s=this.props.tags;
         return (
             <div>
                 {
@@ -45,8 +31,8 @@ class TagPlate extends Component {
                             return (
                                 <TagComponent
                                     key={i}
-                                    tag_name={tagplateitem.label}
-                                    tag_img={tagplateitem.img}
+                                    tag_name={tagplateitem[0]}
+                                    tag_img={tagplateitem[1]}
                                 />
                             );
                         })

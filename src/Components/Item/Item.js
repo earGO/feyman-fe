@@ -8,28 +8,53 @@ import './Item.css';
 * post name from posts table
 * list of tags from tags table*/
 
-const Item = ({title,short, post_id, tagplate, onRouteChange, showPost}) => {
-    return (
-        <div className=''>
-            <article className="center mw6 mw8-ns hidden mv4 flex flex-wrap-reverse pv0.4">
-                <div className="mw5 f4 bg-near-white br3 br--top black-60 mv0 pa3 mr2">
-                       <TagPlate postId={post_id}/>
-                </div>
-                <div className="omw15 pa0.3">
-                    <h1 className="f5 f6-ns lh-copy measure-wide">{title}</h1>
-                    <p className="pointer f4 f4-ns lh-copy measure-wide"
-                        onClick={() => {
-                            onRouteChange('post');
-                            showPost(post_id);
-                        } }
-                        >
-                        {short}
-                    </p>
-                </div>
-            </article>
-        </div>
+class Item extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            itemTags:[]
+        }
+        this.itemSelectedTags = this.itemSelectedTags.bind(this)
+    }
 
-    );
+    componentDidUpdate(){
+        console.log(this.props)
+    }
+
+
+    itemSelectedTags = async (tags) => {
+        await this.setState({
+            itemTags:tags
+        })
+    }
+
+    render(){
+        const {title,short, post_id, tags, onRouteChange, showPost} = this.props;
+        return (
+            <div className=''>
+                <article className="center mw6 mw8-ns hidden mv4 flex flex-wrap-reverse pv0.4">
+                    <div className="mw5 f4 bg-near-white br3 br--top black-60 mv0 pa3 mr2">
+                        <TagPlate
+                            tags={tags}
+                            itemSelectedTags={this.itemSelectedTags}/>
+                    </div>
+                    <div className="omw15 pa0.3">
+                        <h1 className="f5 f6-ns lh-copy measure-wide">{title}</h1>
+                        <p className="pointer f4 f4-ns lh-copy measure-wide"
+                           onClick={() => {
+                               onRouteChange('post');
+                               showPost(post_id);
+                           } }
+                        >
+                            {short}
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+        );
+    }
+
 };
 
 
