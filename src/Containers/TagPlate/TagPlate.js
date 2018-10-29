@@ -14,6 +14,7 @@ class TagPlate extends Component {
         super(props);
         this.state = {
             tags: [],
+            tagsa:[]
         };
     }
     componentDidMount() {
@@ -27,22 +28,24 @@ class TagPlate extends Component {
         let fetchUrl2=urljoin('http://localhost:3000/ptagsa/',this.props.postId.toString())
         fetch(fetchUrl2)
             .then(response => response.json())
-            .then(data => {
-                this.setState({tags: data});
+            .then(dataa => {
+                this.setState({tagsa: dataa});
             })
             .catch(err => console.log('error getting post'))
     }
 
     render() {
         const tags_t_s=this.state.tags;
+        {console.log(tags_t_s[0])}
         return (
             <div>
                 {
                     tags_t_s.map((tagplateitem, i) => {
+
                             return (
                                 <TagComponent
                                     key={i}
-                                    tag_name={tagplateitem.name}
+                                    tag_name={tagplateitem.label}
                                     tag_img={tagplateitem.img}
                                 />
                             );

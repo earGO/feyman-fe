@@ -3,6 +3,12 @@ import TagSelector from '../../Components/TagSelector/TagSelector';
 import Intro from "../../Components/Intro/Intro";
 import Itemlist from '../Itemlist/Itemlist';
 
+
+/*the container component for demonstating posts itemlist and filtering it according to tags,
+* selected in tag-selector component*/
+
+
+
 class PostsItemList extends Component {
     constructor(props) {
         super(props);

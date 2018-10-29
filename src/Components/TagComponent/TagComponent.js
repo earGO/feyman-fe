@@ -10,7 +10,7 @@ import React from 'react';
 const TagComponent = ({tag_name,tag_img}) => {
     return (
         <div name="tagselectorwrapper" className={'dib'}>
-            <a className="f6 link dim ph1 pv1 mb2 dib black" href="#0"><img alt={'tagicon'} src={tag_img} width={'10px'} height={'100%'}/>{tag_name}</a>
+            <a className="f6 link dim ph1 pv1 mb2 dib black" href="#0"><img alt={'tagname'} src={tag_img} width={'10px'} height={'100%'}/>{tag_name}</a>
         </div>
 
     );
