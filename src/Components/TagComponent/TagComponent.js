@@ -11,12 +11,16 @@ class TagComponent extends React.Component {
     constructor(props) {
         super(props)
     }
+
+    onTagClick = (e) => {
+        this.props.tagClicked(this.props.tag_name)
+    }
     render(){
         const {tag_name,tag_img} = this.props;
         return (
                 <div name="tagselectorwrapper"
                      className={'dib'}
-                    >
+                    onClick={this.onTagClick}>
                     <a className="f6 link dim ph1 pv1 mb2 dib black" href="#0"><img alt={'tagname'} src={tag_img} width={'10px'} height={'100%'}/>{tag_name}</a>
                 </div>
     );

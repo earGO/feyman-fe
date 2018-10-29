@@ -36,7 +36,8 @@ class Item extends React.Component {
                     <div className="mw5 f4 bg-near-white br3 br--top black-60 mv0 pa3 mr2">
                         <TagPlate
                             tags={tags}
-                            itemSelectedTags={this.itemSelectedTags}/>
+                            itemSelectedTags={this.itemSelectedTags}
+                            tagClicked={this.props.tagClicked}/>
                     </div>
                     <div className="omw15 pa0.3">
                         <h1 className="f5 f6-ns lh-copy measure-wide">{title}</h1>

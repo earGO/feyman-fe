@@ -33,6 +33,7 @@ class TagPlate extends Component {
                                     key={i}
                                     tag_name={tagplateitem[0]}
                                     tag_img={tagplateitem[1]}
+                                    tagClicked={this.props.tagClicked}
                                 />
                             );
                         })

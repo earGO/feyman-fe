@@ -49,6 +49,7 @@ class Itemlist extends Component {
                                 tags={post[3]}
                                 onRouteChange={this.props.onRouteChange}
                                 showPost={this.props.showPost}
+                                tagClicked={this.props.tagClicked}
 
                             />
                         );}

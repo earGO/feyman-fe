@@ -18,7 +18,7 @@ class PostsItemList extends Component {
             inputSelectedTags:[]
         }
         this.updateSelectedTags = this.updateSelectedTags.bind(this)
-        this.itemClickedTag = this.itemClickedTag.bind(this)
+        this.tagClicked = this.tagClicked.bind(this)
     }
 
     componentDidMount() {
@@ -35,10 +35,8 @@ class PostsItemList extends Component {
         })
     }
 
-    itemClickedTag = async(name) =>{
-        await this.setState({
-            itemClickedTagName:name
-        })
+    tagClicked = async(name) =>{
+        await console.log('clicked on',name)
 
     }
 
@@ -64,7 +62,7 @@ class PostsItemList extends Component {
                     postIds={postIds}
                     onRouteChange={onRouteChange}
                     showPost={showPost}
-                    itemClickedTag={this.itemClickedTag}
+                    tagClicked={this.tagClicked}
                     />
             </div>
         )
