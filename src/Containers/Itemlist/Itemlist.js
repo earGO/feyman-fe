@@ -3,6 +3,18 @@ import Item from '../../Components/Item/Item.js'
 
 const urljoin = require('url-join');
 
+/*a function to compare two arrays and return 'true' if hasTags has all items from needTags,
+* otherwise it's a 'false'*/
+const shouldShow = (hasTags,needTags) => {
+    let res=[];
+    needTags.map(tag => {
+        res.push(hasTags.includes(tag))
+    })
+    return !res.includes(false)
+}
+
+
+
 /*itemlist gives to each <item> component
 * post_id,title and tagplate from posts table
 * tag_text and tag_img from tags table, according*/

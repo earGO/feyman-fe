@@ -45,6 +45,11 @@ class App extends Component {
         this.setState({textField: event.target.value})
     }
 
+    onRouteChange = (route) => {
+            this.setState({route: route})
+        }
+
+
     showPost = (postId) => {
         if (postId) {
             this.setState({showPostId: postId});
@@ -53,22 +58,11 @@ class App extends Component {
 
     }
 
-    onRouteChange = (route) => {
-        if (route==='signout') {//if user clicks 'Sign out' on Navigation component we change 'isSignedIn' state so "Sign in" and "registration" displayed on a Navigation component
-            this.setState({isSignedIn:false})
-        } else if (route==='home'){//if user is signed in we change 'isSignedIn' state so "Sign out" displayed on a Navigation component
-            this.setState({isSignedIn: true})
-        }
-        this.setState({'route': route});
-    }
-
-
-
 
   render() {
       Reactotron.log('hello rendering world')
 
-     const {showPostId,textField} = this.state;
+     const {showPostId,textField, route} = this.state;
 
     return (
         <div  className="App ph5 width-75 pv3 ph5" id={'wrapper'}>
@@ -76,7 +70,7 @@ class App extends Component {
 
 
             {/*            <Tagbox textChange={this.onTextChange}/>*/}
-            {this.state.route === 'home'
+            {route === 'home'
                 ?<div>
                     <Intro/>
                     <Itemlist
@@ -86,7 +80,7 @@ class App extends Component {
                     />
                 </div>
                 : (
-                    this.state.route==='post'
+                    route==='post'
                         ? <div>{console.log(this.state)}
                         <Post showPostId={showPostId} /></div>
                         : <DebugComponent/>
