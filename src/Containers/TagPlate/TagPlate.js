@@ -18,7 +18,6 @@ class TagPlate extends Component {
         };
     }
     componentDidMount() {
-        console.log(this.props.tags)
     }
 
     render() {
@@ -31,8 +30,7 @@ class TagPlate extends Component {
                             return (
                                 <TagComponent
                                     key={i}
-                                    tag_name={tagplateitem[0]}
-                                    tag_img={tagplateitem[1]}
+                                    tagBody={tagplateitem}
                                     tagClicked={this.props.tagClicked}
                                 />
                             );

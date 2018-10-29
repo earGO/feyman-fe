@@ -14,7 +14,8 @@ class PostsItemList extends Component {
         super(props);
         this.state = {
             activeTags:[],
-            itemClickedTagName:'',
+            tagsClicked:[],
+            tagsClickedActive:[],
             inputSelectedTags:[]
         }
         this.updateSelectedTags = this.updateSelectedTags.bind(this)
@@ -26,18 +27,18 @@ class PostsItemList extends Component {
     }
 
     componentDidUpdate() {
-        console.log(this.state.itemClickedTagName)
+        console.log(this.state.tagsClicked)
     }
 
     updateSelectedTags = async (tags) => {
-        await this.setState({
-            inputSelectedTags:tags
-        })
+        await this.setState({activeTags:tags})
+
     }
 
     tagClicked = async(name) =>{
-        await console.log('clicked on',name)
-
+        let tagsClicked = [...this.state.tagsClicked];
+        if (!tagsClicked.includes(name)) {tagsClicked.push(name);
+        this.setState({ tagsClicked: tagsClicked })}
     }
 
     render() {
@@ -57,7 +58,10 @@ class PostsItemList extends Component {
         return (
             <div>
                 <Intro/>
-                <TagSelector updateSelectedTags={this.updateSelectedTags}/>
+                <TagSelector
+                    updateSelectedTags={this.updateSelectedTags}
+                    clickedTag={this.state.tagsClicked}
+                    activeTags={this.state.activeTags}/>
                 <Itemlist
                     postIds={postIds}
                     onRouteChange={onRouteChange}

@@ -10,7 +10,8 @@ export default class TagSelector extends React.Component {
             inputValue: '',
             fColors: [], /*an array to fill lits options from database when component initially mounts in a parent*/
             sTags:[], /*an array to work with*/
-            value:'test string'
+            value:this.props.activeTags,
+            accValue:[]
 
         };
 
@@ -23,6 +24,9 @@ export default class TagSelector extends React.Component {
                 this.setState({fColors: data});
             })
             .catch(err => console.log('error getting post'))
+        if (!this.props.clickedTag.length){
+            console.log('no tag clicked')
+        }
     }
     componentDidUpdate() {
 
@@ -67,8 +71,10 @@ export default class TagSelector extends React.Component {
                         className='tagSelect'
                         id='tagSelect'
                         type={'submit'}
+                        value={this.state.value}
                         onChange={this.updateState.bind(this)}/>
                     </div>
+
             </div>
         );
     }
