@@ -23,33 +23,24 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            route: 'home',
+            route: 'home', /*a state for routing*/
             showPostId: '', /*a state to pick a post to show*/
-            posts:[],
             tags:[]
         }
     }
 
-
+    /*empty method for debugging*/
     componentDidMount(){
-        document.title = "Blog for logging cool things";
-       fetch('http://localhost:3000/')
-            .then(response => response.json())
-           .then(data => {
-               this.setState({posts: data});
-           })
-           .catch(err => console.log('error getting post'))
+
     }
 
-    onTextChange = (event) => {
-        this.setState({textField: event.target.value})
-    }
-
+    /*method passed to all points of App, where routing can change*/
     onRouteChange = (route) => {
             this.setState({route: route})
         }
 
-
+    /*a method passed down to Item through Itemlist throug PostItemList
+    * when clicked, it gets showPostId from item and passes it as prop to Post component*/
     showPost = (postId) => {
         if (postId) {
             this.setState({showPostId: postId});

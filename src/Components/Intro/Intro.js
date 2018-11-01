@@ -1,6 +1,7 @@
 
 import React from 'react';
-
+/*dumb hardcoded component
+* will make it database fetched later on in v1.1.0*/
 const Intro = (props) => {
     return (
         <section className="center mw8 tj">

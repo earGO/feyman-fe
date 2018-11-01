@@ -27,31 +27,31 @@ export default class TagSelector extends React.Component {
     componentDidUpdate() {
 
         }
-
+    /*a method to search avaliable options in a dropdown based on user input in search-field*/
     filterTags = (inputValue: string) =>
         this.state.fColors.filter(i =>
             i.label.toLowerCase().includes(inputValue.toLowerCase())
         );
-
+    /*a method that actualy loads tags to select from to drop-down list*/
     promiseOptions = inputValue =>
         new Promise(resolve => {
             setTimeout(() => {
                 resolve(this.filterTags(inputValue));
             }, 1000);
         });
-
+    /*a method for handling user input in tag-search-field*/
     handleInputChange = (newValue: string) => {
         const inputValue = newValue.replace(/\W/g, '');
         this.setState({ inputValue });
         return inputValue;
     };
-
+    /*a method for setting component's state to deal with tag-filtering*/
     handleTagsToState = (options) => {
         if (options.length) {
             this.setState({
                 sTags:options});
         }
-        this.props.updateSelectedTags(options)
+        this.props.updateSelectedTags(options)/*a prop that gives this component's active selected tags to it's parent component <PostsItemList>*/
     }
 
 

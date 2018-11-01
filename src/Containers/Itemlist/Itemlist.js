@@ -28,7 +28,7 @@ class Itemlist extends Component {
         const posts_t_s=this.state.posts;
         return(
             <div className=''>
-                {
+                {/*the structure of a {Post} object defined by JSON response structure*/
                     posts_t_s.map((post,i) => {
                         return (
                             <Item
@@ -37,10 +37,10 @@ class Itemlist extends Component {
                                 title={post[1]}
                                 short={post[2]}
                                 tags={post[3]}
-                                onRouteChange={this.props.onRouteChange}
-                                showPost={this.props.showPost}
-                                tagClicked={this.props.tagClicked}
-                                activeTags={this.props.activeTags}/>
+                                onRouteChange={this.props.onRouteChange} /*a props method for changing App's 'route' state*/
+                                showPost={this.props.showPost} /*a prop for a <Post> that gives it ID of a post it should load*/
+                                tagClicked={this.props.tagClicked} /*an unused prop for <PostsItemList to deal with click on a tags*/
+                                activeTags={this.props.activeTags}/> /*an prop to define will <Item> component be rendered, based on selected tags in <TagSelector> component*/
 
                         );}
                     )

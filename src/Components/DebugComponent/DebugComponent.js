@@ -1,11 +1,7 @@
 
 import React from 'react';
 
-/*this component creates a single tag for a parent <TagPlate> component
-* it is populated by data from tags table in database
-* it is this component, who connects to the database and fetches data needed
-* it gets tag_id from a <TagPlate> component and gets
-* tag_name and tag_img from a tags table in database*/
+/*a dumb and empty component to show when routing goes south*/
 
 const DebugComponent = () => {
     return (

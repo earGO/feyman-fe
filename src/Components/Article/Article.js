@@ -1,8 +1,9 @@
 
 import React from 'react';
 
-/*this component gets article_id from a parent <Post> component,
-* and then gets all fields from an articles table*/
+/*this component gets all it's parts from a .map cycle in <Post> component,
+* and then gets all fields from an articles table
+* */
 
 
 const Article = ({article_title,article_image,article_body,article_url}) =>{

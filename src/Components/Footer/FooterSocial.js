@@ -1,9 +1,7 @@
 
 import React from 'react';
 
-/*this component gets article_id from a parent <Post> component,
-* and then gets all fields from an articles table*/
-
+/*a sicoal networks icons plate in footer*/
 
 const FooterSocial = () =>{
     return (

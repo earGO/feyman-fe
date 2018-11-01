@@ -25,23 +25,30 @@ class Item extends React.Component {
     componentDidUpdate(){
     }
 
-
+    /*the method fills this item state from TagPlate child component$ unused as of 01-11-2018
+    * it was better by picking directly from props, but i left it this way to deal with tag-clickin in future*/
     itemSelectedTags = async (tags) => {
         await this.setState({
             itemTags:tags
         })
     }
-
+    /*this method decides, should each particular item be shown on <ItemList> component
+    *based on tags, selected in <TagSelector> component*/
     shouldShow = () => {
         let res=[];
         let has=[];
         let needs=[];
+        /*props for a selected in <TagSelector> tags*/
         this.props.activeTags.map(tag => {
             needs.push(tag.label)
         })
+        /*this <Item>'s tags taken from props*/
         this.props.tags.map(tag => {
             has.push(tag.label)
         })
+        /*by filling local arrays we dealing with async issues
+        * though function itself is NOT async, i've managed to fix async issues this way
+        * React didn't want to map on props directly*/
         needs.map(tag => {
             res.push(has.includes(tag))
         })

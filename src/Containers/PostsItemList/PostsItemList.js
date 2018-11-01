@@ -21,14 +21,14 @@ class PostsItemList extends Component {
         this.updateSelectedTags = this.updateSelectedTags.bind(this)
         this.tagClicked = this.tagClicked.bind(this)
     }
-
+    /*two empty methods for debugging purposes*/
     componentDidMount() {
     }
 
     componentDidUpdate() {
 
     }
-
+    /*method updates activeTags state, used to implement tags-filtering of an ItemList*/
     updateSelectedTags = async (tags) => {
         await this.setState({activeTags:tags})
 

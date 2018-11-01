@@ -4,15 +4,16 @@ import TagComponent from '../../Components/TagComponent/TagComponent';
 
 
 
-/*as i want to pick tags directly from a component that fetches them,
-i use tagtable placeholder instead of a database table for dev purposes*/
+/*COmponent gets it's Tags array as props from Item component
+*
+* It also gets tagClicked method from PostItemList to deal with tag-search (unused as of 01-11-2018)*/
 
 
 class TagPlate extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tagsa:[]
+            tagsa:[] /*i've kept this state for future use*/
         };
     }
 

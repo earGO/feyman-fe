@@ -20,7 +20,7 @@ class Post extends React.Component {
             articles: [],
         };
     }
-
+    /*fetch post data hee, based in a post-id prop from clickin' on an Item component in an Itemlist*/
     componentDidMount() {
         let fetchUrl=urljoin('http://localhost:3000/post/',this.props.showPostId.toString())
         fetch(fetchUrl)
@@ -32,14 +32,21 @@ class Post extends React.Component {
             .catch(err => console.log('error getting post'))
     }
 
-
+        /*so the <Post> itself is a set of articles, each one is described by <Article> component,
+        * and has Body, title, img and url link to some interesting stuff
+        * the <Post> component just iterates over data, fetched from database, based in ID, recieved as props from App
+        * parent component*/
     render() {
         const post_articles = this.state.articles;
         return(
             <div>
                 {
                     post_articles.map((article,i) => {
+                        /*the structure and NAMING of article component props,given to the component,
+                        defined by database structure and
+                        JSON-response structure*/
                         return(
+
                             <Article
                                 key={i}
                                 article_title={article.a_title}

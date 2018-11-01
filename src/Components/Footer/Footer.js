@@ -1,6 +1,9 @@
 import React from 'react';
 import FooterSocial from './FooterSocial';
 
+
+/*ill make it more 'React-Component-like' in next iteration*/
+
 const Footer = () => {
     return (
         <div>
