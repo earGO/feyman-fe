@@ -21,7 +21,7 @@ class TagComponent extends React.Component {
                 <div name="tagselectorwrapper"
                      className={'dib'}
                     onClick={this.onTagClick}>
-                    <div className="f6 ph1 pv1 mb2 dib black"><img alt={tag_name} src={tag_img} width={'10px'} height={'100%'}/>{tag_name}</div>
+                    <div className="f6 ph1 pv1 mb2 dib black w-100"><img alt={tag_name} src={tag_img} width={'10px'} height={'100%'}/>{tag_name}</div>
                 </div>
     );
     }

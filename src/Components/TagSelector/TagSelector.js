@@ -57,8 +57,8 @@ export default class TagSelector extends React.Component {
 
     render() {
         return (
-            <div className={'stylewrapper center db di w-60 cf'}>
-                    <div className={'f6 f5-l input-reset bn fl black-80 bg-white pa1 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns'}>
+            <div className={'center db di w-50 cf'}>
+                    <div className={'f6 f5-l tc input-reset black-80 bg-white pa1 lh-solid w-100 br2-ns br--left-ns'}>
                        <AsyncSelect
                         isMulti
                         closeMenuOnSelect={false}

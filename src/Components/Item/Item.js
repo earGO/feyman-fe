@@ -64,16 +64,16 @@ class Item extends React.Component {
             <div className=''>
                 {
                     this.shouldShow()
-                    ? <article className="center mw6 mw8-ns hidden mv4 flex flex-wrap-reverse pv0.4">
-                            <div className="mw5 f4 bg-near-white br3 br--top black-60 mv0 pa3 mr2">
+                    ? <article className="b--dark-red center mw4 mw8-ns hidden mv4-ns mv2-m flex flex-wrap-reverse pv0.4">
+                            <div className="b--orange mw6 f4 bg-near-white br3 br--top black-60 mv0 w-20-ns measure-wide w-100-m">
                                 <TagPlate
                                     tags={tags}
                                     itemSelectedTags={this.itemSelectedTags}
                                     tagClicked={this.props.tagClicked}/>
                             </div>
-                            <div className="omw15 pa0.3">
-                                <h1 className="f5 f6-ns lh-copy measure-wide">{title}</h1>
-                                <p className="pointer f4 f4-ns lh-copy measure-wide"
+                            <div className="b--black-20 pa0.3 w-75-ns w-100-m ">
+                                <h1 className="center b--black-30 f3-ns f4-m lh-copy bt-m bw1 w-75 tc">{title}</h1>
+                                <p className="b--blue pointer f5-m f4-ns lh-copy w-100 measure-wide tj"
                                    onClick={() => {
                                        onRouteChange('post');
                                        showPost(post_id);

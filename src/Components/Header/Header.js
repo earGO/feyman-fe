@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = ({onRouteChange}) => {
     return (
-        <nav className="dt w-90 center border-box pa0 ph0-ns">
+        <nav className="dt w-50-l w-90-m center border-box pa0 ph0-ns">
             <p className="dtc v-mid mid-gray link w-50 tl pointer"
                title="Home"
                onClick={() => onRouteChange('home')}>

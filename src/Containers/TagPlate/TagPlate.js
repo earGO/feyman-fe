@@ -27,6 +27,7 @@ class TagPlate extends Component {
 
                             return (
                                 <TagComponent
+                                    className={'w-100 dib'}
                                     key={i}
                                     tagBody={tagplateitem}
                                     tagClicked={this.props.tagClicked}

@@ -29,9 +29,10 @@ class App extends Component {
         }
     }
 
-    /*empty method for debugging*/
-    componentDidMount(){
 
+    componentDidMount(){
+        /*set displayed title*/
+        document.title = "WebDev Blog&Portfolio";
     }
 
     /*method passed to all points of App, where routing can change*/
