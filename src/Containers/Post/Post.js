@@ -22,7 +22,7 @@ class Post extends React.Component {
     }
     /*fetch post data hee, based in a post-id prop from clickin' on an Item component in an Itemlist*/
     componentDidMount() {
-        let fetchUrl=urljoin('http://localhost:3000/post/',this.props.showPostId.toString())
+        let fetchUrl=this.props.serverAdress.concat(this.props.postEndPoint.concat(this.props.showPostId.toString()))
         fetch(fetchUrl)
             .then(response => response.json())
             .then(data => {

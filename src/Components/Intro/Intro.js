@@ -4,8 +4,8 @@ import React from 'react';
 * will make it database fetched later on in v1.1.0*/
 const Intro = (props) => {
     return (
-        <section className="b--dark-red mw9 center ph3-ns cf ph2-ns db w-60-l w-90-m">
-            <div className=" ma0 b--gold tj center f4-ns f5-m lh-copy w-80-ns w-100-m db mv0">
+        <section className="mw10 center ph3-ns cf ph2-ns db w-80-l w-90-m">
+            <div className=" ma0 tj center f4-ns f5-m lh-copy w-100-ns w-100-m db mv0">
                 <p className="b--blue f5-m f4-ns lh-copy w-100 measure-wide tj">
                     Hello and welcome to my blog and portfolio!
                 </p>

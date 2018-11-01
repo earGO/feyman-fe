@@ -16,7 +16,8 @@ export default class TagSelector extends React.Component {
     }
 /*fetch selection options from database*/
     componentDidMount() {
-        fetch('http://localhost:3000/admin/tags/')
+        let fetchUrl=this.props.serverAdress.concat(this.props.tagsEndPoint)
+        fetch(fetchUrl)
             .then(response => response.json())
             .then(data => {
                 this.setState({fColors: data});

@@ -13,7 +13,8 @@ class Itemlist extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/smart') /*fetches start page data from backend*/
+        let fetchUrl=this.props.serverAdress.concat(this.props.postEndPoint)
+        fetch(fetchUrl) /*fetches start page data from backend*/
             .then(response => response.json())
             .then(data => {
                 this.setState({posts: data});

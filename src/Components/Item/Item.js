@@ -73,7 +73,7 @@ class Item extends React.Component {
                             </div>
                             <div className="b--black-20 pa0.3 w-75-ns w-100-m ">
                                 <h1 className="center b--black-30 f3-ns f4-m lh-copy bt-m bw1 w-75 tc">{title}</h1>
-                                <p className="b--blue pointer f5-m f4-ns lh-copy w-100 measure-wide tj"
+                                <p className="b--blue center pointer f5-m f4-ns lh-copy w-100 measure-wide tj"
                                    onClick={() => {
                                        onRouteChange('post');
                                        showPost(post_id);

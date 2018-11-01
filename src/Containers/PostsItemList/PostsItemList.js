@@ -54,14 +54,18 @@ Moving on, will figure out and fix later.*/
                 <TagSelector
                     updateSelectedTags={this.updateSelectedTags}
                     clickedTag={this.state.tagsClicked}
+                    serverAdress={this.props.serverAdress}
+                    tagsEndPoint={this.props.tagsEndPoint}
                 />
                 <Itemlist
                     postIds={postIds}
                     onRouteChange={onRouteChange}
                     showPost={showPost}
                     tagClicked={this.tagClicked}
-                    activeTags={this.state.activeTags}/>
-                    />
+                    activeTags={this.state.activeTags}
+                    serverAdress={this.props.serverAdress}
+                    postEndPoint={this.props.postEndPoint}
+                />
             </div>
         )
     }

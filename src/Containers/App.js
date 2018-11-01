@@ -25,10 +25,15 @@ class App extends Component {
         this.state = {
             route: 'home', /*a state for routing*/
             showPostId: '', /*a state to pick a post to show*/
-            tags:[]
+            tags:[],
+            serveradress: 'http://localhost:5500/', /*a state to set localhost port in one place*/
+            endpoints: {
+                smartPost: 'smart', /*send to frontend a JSON object with post data to process, created on backend*/
+                post: 'post/:id', /*an endpoint thad sends entire post data with articles and stuff*/
+                tagSelect: 'admin/tags/' /*get all tags to fill <TagSelector> when creating new post*/
+            }
         }
     }
-
 
     componentDidMount(){
         /*set displayed title*/
@@ -54,22 +59,30 @@ class App extends Component {
   render() {
       Reactotron.log('hello rendering world')
 
-     const {showPostId, route} = this.state;
+     const {showPostId, route,serveradress,endpoints} = this.state;
 
     return (
-        <div  className="App ph5 width-75 pv3 ph5" id={'wrapper'}>
+        <div  className="ba b--dark-green App ph5 w-70-l w-90-m center db pv3 ph5" id={'wrapper'}>
             <Header onRouteChange={this.onRouteChange}/>
             {route === 'home'
                 ?<div>
                     <PostsItemList
                         postIds={this.state.posts}
                         onRouteChange={this.onRouteChange}
-                        showPost={this.showPost}/>
+                        showPost={this.showPost}
+                        serverAdress={serveradress}
+                        postEndPoint={endpoints.smartPost}
+                        tagsEndPoint={endpoints.tagSelect}
+                    />
                 </div>
                 : (
                     route==='post'
                         ? <div>{console.log(this.state)}
-                        <Post showPostId={showPostId} /></div>
+                        <Post
+                            showPostId={showPostId}
+                            serverAdress={serveradress}
+                            postEndPoint={endpoints.post}
+                        /></div>
                         : <DebugComponent/>
                 )
             }
