@@ -1,20 +1,6 @@
 import React, {Component} from 'react';
 import Item from '../../Components/Item/Item.js'
 
-const urljoin = require('url-join');
-
-/*a function to compare two arrays and return 'true' if hasTags has all items from needTags,
-* otherwise it's a 'false'*/
-const shouldShow = (hasTags,needTags) => {
-    let res=[];
-    needTags.map(tag => {
-        res.push(hasTags.includes(tag))
-    })
-    return !res.includes(false)
-}
-
-
-
 /*itemlist gives to each <item> component
 * post_id,title and tagplate from posts table
 * tag_text and tag_img from tags table, according*/
@@ -34,6 +20,10 @@ class Itemlist extends Component {
             })
             .catch(err => console.log('error getting post'))
     }
+
+    componentDidUpdate(){
+    }
+
     render (){
         const posts_t_s=this.state.posts;
         return(
@@ -50,8 +40,8 @@ class Itemlist extends Component {
                                 onRouteChange={this.props.onRouteChange}
                                 showPost={this.props.showPost}
                                 tagClicked={this.props.tagClicked}
+                                activeTags={this.props.activeTags}/>
 
-                            />
                         );}
                     )
                 }

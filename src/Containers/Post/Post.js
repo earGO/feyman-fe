@@ -42,10 +42,10 @@ class Post extends React.Component {
                         return(
                             <Article
                                 key={i}
-                                article_title={article.title}
+                                article_title={article.a_title}
                                 article_image={article.article_image}
                                 article_body={article.body}
-                                article_url={article.url}
+                                article_url={article.article_url}
                             />
 
                         );

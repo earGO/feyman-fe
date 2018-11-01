@@ -8,15 +8,13 @@ export default class TagSelector extends React.Component {
         super(props);
         this.state = {
             inputValue: '',
-            fColors: [], /*an array to fill lits options from database when component initially mounts in a parent*/
+            fColors: [], /*an array to fill lists options from database when component initially mounts in a parent*/
             sTags:[], /*an array to work with*/
-            value:this.props.activeTags,
-            accValue:[]
 
         };
 
     }
-
+/*fetch selection options from database*/
     componentDidMount() {
         fetch('http://localhost:3000/admin/tags/')
             .then(response => response.json())
@@ -24,20 +22,11 @@ export default class TagSelector extends React.Component {
                 this.setState({fColors: data});
             })
             .catch(err => console.log('error getting post'))
-        if (!this.props.clickedTag.length){
-            console.log('no tag clicked')
-        }
     }
+
     componentDidUpdate() {
 
-    }
-
-    updateState(element) {
-        this.setState({
-            value: element
-        })
-        this.props.updateSelectedTags(element)
-    }
+        }
 
     filterTags = (inputValue: string) =>
         this.state.fColors.filter(i =>
@@ -57,6 +46,15 @@ export default class TagSelector extends React.Component {
         return inputValue;
     };
 
+    handleTagsToState = (options) => {
+        if (options.length) {
+            this.setState({
+                sTags:options});
+        }
+        this.props.updateSelectedTags(options)
+    }
+
+
     render() {
         return (
             <div className={'stylewrapper center db di w-60 cf'}>
@@ -71,10 +69,9 @@ export default class TagSelector extends React.Component {
                         className='tagSelect'
                         id='tagSelect'
                         type={'submit'}
-                        value={this.state.value}
-                        onChange={this.updateState.bind(this)}/>
+                        onChange={this.handleTagsToState}
+                        onInputChange={this.handleInputChange}/>
                     </div>
-
             </div>
         );
     }

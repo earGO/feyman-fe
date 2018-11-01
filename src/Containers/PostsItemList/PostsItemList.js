@@ -23,18 +23,19 @@ class PostsItemList extends Component {
     }
 
     componentDidMount() {
-
     }
 
     componentDidUpdate() {
-        console.log(this.state.tagsClicked)
+
     }
 
     updateSelectedTags = async (tags) => {
         await this.setState({activeTags:tags})
 
     }
-
+/*reserved functionality for tag filtering by clicking on post.
+As of 31-10-2018 couldn't figure out how to link theese to the react-select component.
+Moving on, will figure out and fix later.*/
     tagClicked = async(name) =>{
         let tagsClicked = [...this.state.tagsClicked];
         if (!tagsClicked.includes(name)) {tagsClicked.push(name);
@@ -47,26 +48,19 @@ class PostsItemList extends Component {
             onRouteChange, /*comes from App parent to define the parent 'route' state*/
             showPost /*defines the post ID to show when 'route' changed to 'post*/
         } = this.props;
-        const {
-            activeTags, /*an array for agregating all tags selected by user to filter posts*/
-            itemClickedTag, /*an array to pick up tags, selected through clicking on item's tagplate*/
-            inputSelectedTags /*an array to pick up tags, selected through input field*/
-        } = this.state;
-
-
-
         return (
             <div>
                 <Intro/>
                 <TagSelector
                     updateSelectedTags={this.updateSelectedTags}
                     clickedTag={this.state.tagsClicked}
-                    activeTags={this.state.activeTags}/>
+                />
                 <Itemlist
                     postIds={postIds}
                     onRouteChange={onRouteChange}
                     showPost={showPost}
                     tagClicked={this.tagClicked}
+                    activeTags={this.state.activeTags}/>
                     />
             </div>
         )

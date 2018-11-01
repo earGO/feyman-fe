@@ -8,17 +8,11 @@ import React from 'react';
 * tag_name and tag_img from a tags table in database*/
 
 class TagComponent extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
-    componentDidMount(){
-
-    }
 
     onTagClick = (e) => {
         this.props.tagClicked(this.props.tagBody)
     }
+
     render(){
         const tag_name = this.props.tagBody.label;
         const tag_img = this.props.tagBody.img;
@@ -26,7 +20,7 @@ class TagComponent extends React.Component {
                 <div name="tagselectorwrapper"
                      className={'dib'}
                     onClick={this.onTagClick}>
-                    <a className="f6 link dim ph1 pv1 mb2 dib black" href="#0"><img alt={tag_name} src={tag_img} width={'10px'} height={'100%'}/>{tag_name}</a>
+                    <div className="f6 ph1 pv1 mb2 dib black"><img alt={tag_name} src={tag_img} width={'10px'} height={'100%'}/>{tag_name}</div>
                 </div>
     );
     }
