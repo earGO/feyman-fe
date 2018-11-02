@@ -28,8 +28,8 @@ class App extends Component {
             tags:[],
             serveradress: 'http://localhost:5500/', /*a state to set localhost port in one place*/
             endpoints: {
-                smartPost: 'smart', /*send to frontend a JSON object with post data to process, created on backend*/
-                post: 'post/:id', /*an endpoint thad sends entire post data with articles and stuff*/
+                smartPost: 'smart/', /*send to frontend a JSON object with post data to process, created on backend*/
+                post: 'post/', /*an endpoint thad sends entire post data with articles and stuff*/
                 tagSelect: 'admin/tags/' /*get all tags to fill <TagSelector> when creating new post*/
             }
         }

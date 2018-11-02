@@ -10,8 +10,6 @@ import Article from '../../Components/Article/Article';
 *
 * it then feeds all this to <Article> and <TagPlate> components respectively*/
 
-const urljoin = require('url-join');
-
 
 class Post extends React.Component {
     constructor(props) {
@@ -53,6 +51,7 @@ class Post extends React.Component {
                                 article_image={article.article_image}
                                 article_body={article.body}
                                 article_url={article.article_url}
+                                articleUrlTitle={article.url_title}
                             />
 
                         );
